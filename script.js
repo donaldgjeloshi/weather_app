@@ -1,5 +1,5 @@
 new Vue({
-    el: "#vue_app",
+    el: "#weatherApp",
     data: {
         temp: 0,
         format: 'C',
