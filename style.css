@@ -1,0 +1,29 @@
+body {
+    padding: 2rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.temp-format {
+    float: right;
+    margin-bottom: 2rem;
+    
+    button {
+        width: auto;
+    }
+}
+
+.weather-details {
+    clear: both;
+}
+
+.weather-temperature {
+    font-size: 3rem;
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
