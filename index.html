@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/solid.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/fontawesome.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+
+    <title>Weather</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h1>Weather</h1>
+                    </div>
+                    <div class="card-body">
+                        <div id="weatherApp">
+                            <div class="temp-format btn-group" role="group" aria-label="Temperature format">
+                                <input type="text" name="search" id="search" class="form-control">
+                                <button type="button" class="btn btn-outline-secondary">forecast</button>   
+                            </div>
+                            <div class="weather-details">
+                                <div class="icon text-center">
+                                    <span class="fas" :class="setPhase()"></span>
+                                </div>
+                                <p class="text-center">Right now in --city-- it's</p>
+                                <p class="weather-temperature text-center">
+                                    <span class="time">{{ setTime() }}</span> &amp;
+                                    <span class="weather-value">{{ temp }}</span>&deg;
+                                    
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <small>Copyright</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
