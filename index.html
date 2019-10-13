@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,13 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     <title>Weather</title>
 </head>
-<body>
+
+<body style="margin-top: 30px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -23,24 +28,38 @@
                     </div>
                     <div class="card-body">
                         <div id="weatherApp">
+                            <p id="focus" tabindex="0">
+                                Anleitung: Unten gehen TAB&#8644; <br>
+                                oben gehen TAB&#8644;  +  SHIFT&#8679;   (fertig: ENTER&#8629;)
+                                
+                            </p>
+
                             <div class="temp-format btn-group" role="group" aria-label="Temperature format">
-                                <input type="text" name="search" id="search" class="form-control">
-                                <button type="button" class="btn btn-outline-secondary">forecast</button>   
+
+
+                                <form @submit.prevent="onSubmit">
+                                    <input type="text" class="form-control" v-model="location">
+                                    <button type="submit" class="btn btn-outline-secondary">search</button>
+                                </form>
                             </div>
                             <div class="weather-details">
                                 <div class="icon text-center">
                                     <span class="fas" :class="setPhase()"></span>
                                 </div>
-                                <p class="text-center">Right now in --city-- it's</p>
+                                <p class="text-center">{{cityName}}</p>
                                 <p class="weather-temperature text-center">
                                     <span class="weather-value">{{ temp }}</span>&deg; &commat;
-                                    <span class="time">{{ setTime() }}</span> 
+                                    <span class="time">{{ setTime() }}</span>
                                 </p>
+                                <p class="text-center">{{cloud}} </p>
+                                <p class="text-center">{{humidity}} </p>
+                                <p class="text-center">{{geoCoordinates}} </p>
+                                <!--<img v-bind:src="weatherLogo" alt="logo">-->
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-center">
-                        <small>Copyright</small>
+                        <footer>&copy; 2019 Web Dev</footer>
                     </div>
                 </div>
             </div>
@@ -48,4 +67,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
