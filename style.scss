@@ -1,15 +1,19 @@
 body {
     padding: 2rem 0;
+    margin-top: 20px;
 }
 
 h1 {
     font-size: 2rem;
 }
+#focus:focus {
+    background-color: yellow;
+}
 
 .temp-format {
     float: right;
     margin-bottom: 2rem;
-    
+
     button {
         width: auto;
     }
