@@ -28,7 +28,7 @@
                     </div>
                     <div class="card-body">
                         <div id="weatherApp">
-                            <p id="focus" tabindex="0">
+                            <p id="focus">
                                 Anleitung: Unten gehen TAB&#8644; <br>
                                 oben gehen TAB&#8644;  +  SHIFT&#8679;   (fertig: ENTER&#8629;)
                                 
@@ -38,7 +38,7 @@
 
 
                                 <form @submit.prevent="onSubmit">
-                                    <input type="text" class="form-control" v-model="location">
+                                    <input type="text" class="form-control" v-model="location" autofocus>
                                     <button type="submit" class="btn btn-outline-secondary">search</button>
                                 </form>
                             </div>
