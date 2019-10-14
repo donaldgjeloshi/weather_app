@@ -12,14 +12,13 @@ new Vue({
         format: 'C',
         time: new Date(),
         phase: 'fa-adjust',
-        apiResults: '',
+        apiResults: null,
         location: '',
         cityName: '',
         temp: 0,
         geoCoordinates: '',
-        cloud: '',
+        cloud: null,
         humidity: ''
-        
 
     },
     methods: {
@@ -43,23 +42,23 @@ new Vue({
                 .get(url)
                 .then(response => {
                     this.apiResults = response.data;
+                    console.log("test 1");
                 })
                 .catch(error => {
                     console.log(error);
                 });
         },
         getData() {
-            this.getWeather(this.location);
             
-            this.cloud = "Bewölkung: " + this.apiResults.clouds.all + " " + this.apiResults.weather[0].description;
+            //this.cloud = "Bewölkung: " + this.apiResults.clouds.all + " " + this.apiResults.weather[0].description;
             this.temp = this.apiResults.main.temp;
-            this.humidity = "Luftfeuchtigkeit: " + this.apiResults.main.humidity + "%";
-            this.geoCoordinates = "Coordinates: [" + this.apiResults.coord.lat + ", " + this.apiResults.coord.lon + "]";
+            //this.humidity = "Luftfeuchtigkeit: " + this.apiResults.main.humidity + "%";
+            //this.geoCoordinates = "Coordinates: [" + this.apiResults.coord.lat + ", " + this.apiResults.coord.lon + "]";
+            console.log("test 2");
         },
         onSubmit() {
+            this.getWeather(this.location);
             this.getData();
-
-
         }
     }
 });
