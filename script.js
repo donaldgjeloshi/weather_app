@@ -42,23 +42,18 @@ new Vue({
                 .get(url)
                 .then(response => {
                     this.apiResults = response.data;
-                    console.log("test 1");
+                    this.cloud = "Bewölkung: " + this.apiResults.clouds.all + " " + this.apiResults.weather[0].description;
+                    this.temp = this.apiResults.main.temp;
+                    this.humidity = "Luftfeuchtigkeit: " + this.apiResults.main.humidity + "%";
+                    this.geoCoordinates = "Coordinates: [" + this.apiResults.coord.lat + ", " + this.apiResults.coord.lon + "]";
                 })
                 .catch(error => {
                     console.log(error);
                 });
         },
-        getData() {
-            
-            //this.cloud = "Bewölkung: " + this.apiResults.clouds.all + " " + this.apiResults.weather[0].description;
-            this.temp = this.apiResults.main.temp;
-            //this.humidity = "Luftfeuchtigkeit: " + this.apiResults.main.humidity + "%";
-            //this.geoCoordinates = "Coordinates: [" + this.apiResults.coord.lat + ", " + this.apiResults.coord.lon + "]";
-            console.log("test 2");
-        },
         onSubmit() {
             this.getWeather(this.location);
-            this.getData();
+            
         }
     }
 });
